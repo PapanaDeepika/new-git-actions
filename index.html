@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Say Hello</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffffdd;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .greeting {
+            margin-top: 25px;
+            font-size: 20px;
+            color: #444;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome 👋</h1>
+        <input type="text" id="nameInput" placeholder="Enter your name" />
+        <br />
+        <button onclick="sayHello()">Say Hello</button>
+        <div id="greeting" class="greeting"></div>
+    </div>
+
+    <script>
+        function sayHello() {
+            const name = document.getElementById("nameInput").value.trim();
+            const greetingDiv = document.getElementById("greeting");
+
+            if (name) {
+                greetingDiv.innerHTML = `Hello <strong>${name}</strong>!`;
+                document.getElementById("nameInput").value = '';
+            } else {
+                greetingDiv.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
